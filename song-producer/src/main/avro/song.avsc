@@ -1,0 +1,13 @@
+{
+  "namespace" : "com.apherox.kafka.domain",
+  "type" : "record",
+  "name" : "Song",
+  "fields" : [
+    {"name":"id","type":"string"},
+    {"name":"performer","type":"string"},
+    {"name":"name","type":"string"},
+    {"name":"album","type":"string"},
+    {"name":"genre","type":"string"},
+    {"name":"year","type":"string"}
+  ]
+}

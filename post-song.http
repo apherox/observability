@@ -1,0 +1,11 @@
+POST localhost:8282/song/create
+Content-type: application/json
+
+{
+   "id":"123",
+   "performer":"U2",
+   "name":"Beautiful day",
+   "album":"U2",
+   "genre":"POP",
+   "year":"2002"
+}

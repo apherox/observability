@@ -1,0 +1,37 @@
+server:
+  port: 8484
+  contextPath: /
+
+spring:
+  application:
+    name: redis-consumer
+
+kafka:
+  bootstrapAddress: "localhost:9092"
+
+zipkin:
+  endpoint: "http://localhost:9411/api/v2/spans"
+
+jaeger:
+  endpoint: "http://localhost:4318/v1/traces"
+
+# All traces should be sent to latency analysis tool
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  # For Exemplars to work we need histogram buckets
+  metrics:
+    distribution:
+      percentiles-histogram:
+        httpserver:
+          requests: true
+
+# traceId and spanId are predefined MDC keys - we want the logs to include them
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
