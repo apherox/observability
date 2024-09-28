@@ -18,7 +18,7 @@ public class SongServiceImpl implements SongService {
     private final Mapper mapper;
 
     @Override
-    public void saveSong(com.kafka.domain.Song song) {
+    public void saveSong(com.apherox.kafka.domain.Song song) {
         try {
             SongElastic elasticSong = mapper.map(song, SongElastic.class);
             songRepository.save(elasticSong);
